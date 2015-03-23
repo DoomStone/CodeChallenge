@@ -4,17 +4,17 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class helloResult {
+public class HelloResult {
 
     // The doc requires the m to be a capital M
     @XmlElement(name = "Message")
-    public messageModel getMessage() {
+    public MessageModel getMessage() {
         return this.message;
     }
 
-    public void setMessage(messageModel message) {
+    public void setMessage(MessageModel message) {
         this.message = message;
     }
 
-    private messageModel message;
+    private MessageModel message;
 }

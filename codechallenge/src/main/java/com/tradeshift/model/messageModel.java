@@ -1,6 +1,6 @@
 package com.tradeshift.model;
 
-public class messageModel {
+public class MessageModel {
 
     public String getContent() {
         return content;
