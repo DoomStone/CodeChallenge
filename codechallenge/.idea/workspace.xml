@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e19eb07-cefc-45be-921c-62c38f8aab31" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tradeshift/ApplicationContext.java" afterPath="$PROJECT_DIR$/src/main/java/com/tradeshift/ApplicationContext.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docker/Dockerfile" afterPath="$PROJECT_DIR$/docker/Dockerfile" />
     </list>
     <ignored path="codechallenge.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -105,8 +105,8 @@
       <file leaf-file-name="Dockerfile" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/docker/Dockerfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7266515" vertical-offset="176" max-vertical-offset="615">
-              <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.93166286" vertical-offset="116" max-vertical-offset="630">
+              <caret line="35" column="10" selection-start-line="35" selection-start-column="10" selection-end-line="35" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -159,9 +159,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/tradeshift/service/EnglishHelloService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tradeshift/service/DanishHelloService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tradeshift/HomeController.java" />
-        <option value="$PROJECT_DIR$/docker/Dockerfile" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/tradeshift/ApplicationContext.java" />
+        <option value="$PROJECT_DIR$/docker/Dockerfile" />
       </list>
     </option>
   </component>
@@ -706,12 +706,12 @@
       <updated>1426858506800</updated>
       <workItem from="1426858508352" duration="5039000" />
       <workItem from="1426864915065" duration="2551000" />
-      <workItem from="1427101385270" duration="26179000" />
+      <workItem from="1427101385270" duration="26361000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33769000" />
+    <option name="totallyTimeSpent" value="33951000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="18" y="29" width="1165" height="873" extended-state="0" />
@@ -971,8 +971,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/docker/Dockerfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7266515" vertical-offset="176" max-vertical-offset="615">
-          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.93166286" vertical-offset="116" max-vertical-offset="630">
+          <caret line="35" column="10" selection-start-line="35" selection-start-column="10" selection-end-line="35" selection-end-column="10" />
           <folding />
         </state>
       </provider>

@@ -32,5 +32,6 @@ ADD root.war /opt/jetty/webapps/
 # Setup Jetty
 RUN java -jar /opt/jetty/start.jar --add-to-startd=http,deploy
 
-# Start Jetty, this is also the entry point
+# Start Jetty, cd to the jetty folder so it knows where to looks for jars
+# This is the entry point
 CMD cd /opt/jetty/ && java -jar start.jar
