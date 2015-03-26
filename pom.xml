@@ -17,8 +17,17 @@
     <name>codechallenge</name>
 
     <build>
-        <finalName>codechallenge</finalName>
+        <finalName>${artifactId}</finalName>
         <plugins>
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>9.2.2.v20140723</version>
+                <configuration>
+                    <scanIntervalSeconds>2</scanIntervalSeconds>
+                </configuration>
+            </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -29,7 +38,6 @@
                     <target>1.7</target>
                 </configuration>
             </plugin>
-
 
             <plugin>
                 <groupId>com.atlassian.maven.plugins</groupId>
@@ -71,6 +79,11 @@
     </build>
 
     <dependencies>
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.2</version>
+        </dependency>
 
         <!-- Jersey -->
         <dependency>

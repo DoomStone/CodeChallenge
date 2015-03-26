@@ -23,4 +23,10 @@ public class HelloResource {
         HelloResult result = new HelloResult(new MessageModel(helloService.formatName(name)));
         return result;
     }
+
+    @GET
+    @Path("test")
+    public String simpleTest(){
+        return "Success";
+    }
 }
