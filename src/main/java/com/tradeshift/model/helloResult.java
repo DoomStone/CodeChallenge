@@ -6,15 +6,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class HelloResult {
 
-    // The doc requires the m to be a capital M
-    @XmlElement(name = "Message")
+    public HelloResult(MessageModel messageModel) {
+        this.message = messageModel;
+    }
+
     public MessageModel getMessage() {
         return this.message;
     }
 
-    public void setMessage(MessageModel message) {
-        this.message = message;
-    }
-
+    // The doc requires the m to be a capital M
+    @XmlElement(name = "Message")
     private MessageModel message;
 }

@@ -2,12 +2,12 @@ package com.tradeshift.model;
 
 public class MessageModel {
 
-    public String getContent() {
-        return content;
+    public MessageModel(String content) {
+        this.content = content;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public String getContent() {
+        return content;
     }
 
     private String content;
