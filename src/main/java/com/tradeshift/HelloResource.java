@@ -27,7 +27,14 @@ public class HelloResource {
     @Path("names/{name}")
     @Produces(MediaType.APPLICATION_JSON)
     public HelloResult names(@PathParam("name") String name){
-        String message = helloService.formatName(name);
+        String message;
+        try{
+            message = helloService.formatName(name);
+        }
+        catch (NullPointerException exp){
+            message = "Error: Name can not be empty";
+        }
+        
         messagesService.insert(message);
         HelloResult result = new HelloResult(new MessageModel(message));
 
