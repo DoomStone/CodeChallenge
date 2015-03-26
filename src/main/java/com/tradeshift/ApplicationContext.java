@@ -2,6 +2,7 @@ package com.tradeshift;
 
 import com.tradeshift.model.dao.JdbcMessagesDAO;
 import com.tradeshift.model.dao.MessagesDAO;
+import com.tradeshift.model.dao.SpringMessagesDAO;
 import com.tradeshift.service.EnglishHelloService;
 import com.tradeshift.service.HelloService;
 import org.postgresql.ds.PGPoolingDataSource;
@@ -20,7 +21,7 @@ public class ApplicationContext {
 
     @Bean
     public MessagesDAO getMessagesDAO(){
-        return new JdbcMessagesDAO(getDataSource());
+        return new SpringMessagesDAO(getDataSource());
     }
 
     @Bean

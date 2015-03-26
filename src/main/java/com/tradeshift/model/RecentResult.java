@@ -37,7 +37,8 @@ public class RecentResult {
     }
 
     public void addMessage(String content, Date created){
-        if(this.lastMessage == null || created.after(this.lastMessage)){
+        if(created != null &&
+                (this.lastMessage == null || created.after(this.lastMessage))){
             this.lastMessage = created;
         }
         this.messageCount++;

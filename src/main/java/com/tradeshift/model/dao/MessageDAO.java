@@ -5,6 +5,7 @@ import java.util.Date;
 public class MessageDAO {
     private int id;
     private String message;
+    private Date created;
 
     public MessageDAO(){
 
@@ -38,6 +39,4 @@ public class MessageDAO {
     public void setMessage(String message) {
         this.message = message;
     }
-
-    private Date created;
 }

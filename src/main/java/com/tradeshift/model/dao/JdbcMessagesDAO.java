@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class JdbcMessagesDAO implements MessagesDAO {
@@ -18,15 +19,15 @@ public class JdbcMessagesDAO implements MessagesDAO {
     }
 
     @Override
-    public void insert(MessageDAO message) {
+    public void insert(String message) {
         String insertSql = "INSERT INTO recent (message, created) VALUES (?, ?)";
         Connection connection = null;
         try {
             connection = dataSource.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(insertSql);
 
-            preparedStatement.setString(1, message.getMessage());
-            preparedStatement.setDate(2, new java.sql.Date(message.getCreated().getTime()));
+            preparedStatement.setString(1, message);
+            preparedStatement.setTimestamp(2, new Timestamp(new Date().getTime()));
             preparedStatement.executeUpdate();
             preparedStatement.close();
         } catch (SQLException e){
@@ -66,7 +67,7 @@ public class JdbcMessagesDAO implements MessagesDAO {
         } finally {
             if(connection != null){
                 try{
-                    connection.createClob();
+                    connection.close();
                 } catch (SQLException e) {
                     // Ignore
                 }

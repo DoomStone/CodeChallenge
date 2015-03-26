@@ -4,6 +4,6 @@ import java.util.List;
 
 public interface MessagesDAO {
 
-    public void insert(MessageDAO message);
+    public void insert(String message);
     public List<MessageDAO> getMessage(int limit);
 }

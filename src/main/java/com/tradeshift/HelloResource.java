@@ -28,7 +28,7 @@ public class HelloResource {
     @Produces(MediaType.APPLICATION_JSON)
     public HelloResult names(@PathParam("name") String name){
         String message = helloService.formatName(name);
-        messagesService.insert(new MessageDAO(0, message, new Date()));
+        messagesService.insert(message);
         HelloResult result = new HelloResult(new MessageModel(message));
 
         return result;
