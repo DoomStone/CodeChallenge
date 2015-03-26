@@ -10,7 +10,6 @@ public class ApplicationContext {
 
     @Bean
     public HelloService getHelloService(){
-        System.out.println("Creating new instance of EnglishHelloService");
         return new EnglishHelloService();
     }
 }
