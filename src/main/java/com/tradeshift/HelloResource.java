@@ -9,24 +9,18 @@ import org.springframework.stereotype.Controller;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
-@Path("/")
+@Path("/messages")
 @Controller
 public class HelloResource {
 
     @Autowired
     private HelloService helloService;
 
-    @GET
-    @Path("hello")
+    @POST
+    @Path("names/{name}")
     @Produces(MediaType.APPLICATION_JSON)
-    public HelloResult index(@QueryParam("name") String name){
+    public HelloResult names(@PathParam("name") String name){
         HelloResult result = new HelloResult(new MessageModel(helloService.formatName(name)));
         return result;
-    }
-
-    @GET
-    @Path("test")
-    public String simpleTest(){
-        return "Success";
     }
 }
