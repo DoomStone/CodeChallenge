@@ -34,7 +34,7 @@ public class HelloResource {
         catch (NullPointerException exp){
             message = "Error: Name can not be empty";
         }
-        
+
         messagesService.insert(message);
         HelloResult result = new HelloResult(new MessageModel(message));
 
