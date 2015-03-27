@@ -1,10 +1,10 @@
 package com.tradeshift;
 
-import com.tradeshift.model.dao.JdbcMessagesDAO;
-import com.tradeshift.model.dao.MessagesDAO;
-import com.tradeshift.model.dao.SpringMessagesDAO;
+import com.tradeshfit.model.dao.MessagesDAO;
+import com.tradeshfit.model.dao.SpringMessagesDAO;
 import com.tradeshift.service.EnglishHelloService;
 import com.tradeshift.service.HelloService;
+import com.tradeshift.service.MessagesService;
 import org.postgresql.ds.PGPoolingDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,6 +22,11 @@ public class ApplicationContext {
     @Bean
     public MessagesDAO getMessagesDAO(){
         return new SpringMessagesDAO(getDataSource());
+    }
+
+    @Bean
+    public MessagesService getMessagesService(){
+        return new MessagesService(getMessagesDAO());
     }
 
     @Bean

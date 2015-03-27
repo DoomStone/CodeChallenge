@@ -3,16 +3,15 @@ package com.tradeshift;
 import com.tradeshift.model.HelloResult;
 import com.tradeshift.model.MessageModel;
 import com.tradeshift.model.RecentResult;
-import com.tradeshift.model.dao.MessageDAO;
-import com.tradeshift.model.dao.MessagesDAO;
+import com.tradeshfit.model.dao.MessageDAO;
+import com.tradeshfit.model.dao.MessagesDAO;
 import com.tradeshift.service.HelloService;
+import com.tradeshift.service.MessagesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.util.ArrayList;
-import java.util.Date;
 
 @Path("/messages")
 @Controller
@@ -21,7 +20,7 @@ public class HelloResource {
     private HelloService helloService;
 
     @Autowired
-    private MessagesDAO messagesService;
+    private MessagesService messagesService;
 
     @POST
     @Path("names/{name}")
