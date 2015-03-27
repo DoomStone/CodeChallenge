@@ -4,7 +4,7 @@ import com.tradeshift.service.DanishHelloService;
 import com.tradeshift.service.HelloService;
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.util.Assert;
+import org.junit.Assert;
 
 public class HelloDanishTest {
 
@@ -20,9 +20,9 @@ public class HelloDanishTest {
     public void TestNoNameEntered(){
         try{
             service.formatName("");
-            Assert.isTrue(false);
+            Assert.assertTrue(false);
         } catch(NullPointerException exp){
-            Assert.isTrue(true);
+            Assert.assertTrue(true);
         }
     }
 
@@ -31,9 +31,9 @@ public class HelloDanishTest {
     public void TestNullEntered(){
         try{
             service.formatName(null);
-            Assert.isTrue(false);
+            Assert.assertTrue(false);
         } catch(NullPointerException exp){
-            Assert.isTrue(true);
+            Assert.assertTrue(true);
         }
     }
 
@@ -42,21 +42,21 @@ public class HelloDanishTest {
     public void TestWhitespaceEntered(){
         try{
             service.formatName("   ");
-            Assert.isTrue(false);
+            Assert.assertTrue(false);
         } catch(NullPointerException exp){
-            Assert.isTrue(true);
+            Assert.assertTrue(true);
         }
     }
 
     @Test
     public void TestWithName(){
         String result = service.formatName("Kasper");
-        Assert.isTrue(result.equals("Hej Kasper"));
+        Assert.assertTrue(result.equals("Hej Kasper"));
     }
 
     @Test
     public void TestWithNameWithSpecialCharacters(){
         String result = service.formatName("!!Kasper$$§§§");
-        Assert.isTrue(result.equals("Hej !!Kasper$$§§§"));
+        Assert.assertTrue(result.equals("Hej !!Kasper$$§§§"));
     }
 }

@@ -22,6 +22,14 @@ public class HelloResource {
     @Autowired
     private MessagesService messagesService;
 
+    public HelloResource(){
+
+    }
+    public HelloResource(HelloService helloService, MessagesService messagesService){
+        this.helloService = helloService;
+        this.messagesService = messagesService;
+    }
+
     @POST
     @Path("names/{name}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -29,12 +37,11 @@ public class HelloResource {
         String message;
         try{
             message = helloService.formatName(name);
+            messagesService.insert(message);
         }
         catch (NullPointerException exp){
             message = "Error: Name can not be empty";
         }
-
-        messagesService.insert(message);
         HelloResult result = new HelloResult(new MessageModel(message));
 
         return result;
