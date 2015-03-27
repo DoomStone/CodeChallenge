@@ -1,6 +1,6 @@
-package com.tradeshift.model.dao;
+package com.tradeshfit.model.dao;
 
-import com.tradeshift.model.dao.mapper.MessageMapper;
+import com.tradeshfit.model.dao.mapper.MessageMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -23,9 +23,9 @@ public class SpringMessagesDAO implements MessagesDAO {
     }
 
     @Override
-    public void insert(String message) {
+    public void insert(String message, Date created) {
         String insertSql = "INSERT INTO recent (message, created) VALUES (?, ?)";
-        jdbcTemplateObject.update(insertSql, message, new Date());
+        jdbcTemplateObject.update(insertSql, message, created);
     }
 
     @Override

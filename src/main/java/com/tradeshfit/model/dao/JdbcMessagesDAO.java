@@ -1,4 +1,4 @@
-package com.tradeshift.model.dao;
+package com.tradeshfit.model.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import javax.sql.DataSource;
@@ -19,7 +19,7 @@ public class JdbcMessagesDAO implements MessagesDAO {
     }
 
     @Override
-    public void insert(String message) {
+    public void insert(String message, Date created) {
         String insertSql = "INSERT INTO recent (message, created) VALUES (?, ?)";
         Connection connection = null;
         try {
@@ -27,7 +27,7 @@ public class JdbcMessagesDAO implements MessagesDAO {
             PreparedStatement preparedStatement = connection.prepareStatement(insertSql);
 
             preparedStatement.setString(1, message);
-            preparedStatement.setTimestamp(2, new Timestamp(new Date().getTime()));
+            preparedStatement.setTimestamp(2, new Timestamp(created.getTime()));
             preparedStatement.executeUpdate();
             preparedStatement.close();
         } catch (SQLException e){

@@ -1,4 +1,4 @@
-package com.tradeshift.model.dao;
+package com.tradeshfit.model.dao;
 
 import java.util.Date;
 

@@ -1,6 +1,6 @@
-package com.tradeshift.model.dao.mapper;
+package com.tradeshfit.model.dao.mapper;
 
-import com.tradeshift.model.dao.MessageDAO;
+import com.tradeshfit.model.dao.MessageDAO;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
