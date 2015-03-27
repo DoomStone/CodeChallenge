@@ -18,7 +18,6 @@ public class JdbcMessagesDAO implements MessagesDAO {
         this.dataSource = dataSource;
     }
 
-    @Override
     public void insert(String message, Date created) {
         String insertSql = "INSERT INTO recent (message, created) VALUES (?, ?)";
         Connection connection = null;
@@ -35,7 +34,7 @@ public class JdbcMessagesDAO implements MessagesDAO {
         } finally {
             if(connection != null){
                 try{
-                    connection.createClob();
+                    connection.close();
                 } catch (SQLException e) {
                     // Ignore
                 }
@@ -43,7 +42,6 @@ public class JdbcMessagesDAO implements MessagesDAO {
         }
     }
 
-    @Override
     public List<MessageDAO> getMessage(int limit) {
         List<MessageDAO> messages = new ArrayList<MessageDAO>();
 
@@ -61,6 +59,7 @@ public class JdbcMessagesDAO implements MessagesDAO {
                         resultSet.getString("message"),
                         new java.util.Date(resultSet.getDate("created").getTime())));
             }
+            preparedStatement.close();
 
         } catch (SQLException e){
             throw new RuntimeException(e);

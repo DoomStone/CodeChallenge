@@ -10,7 +10,6 @@ import java.util.List;
 
 public class SpringMessagesDAO implements MessagesDAO {
 
-    private DataSource dataSource;
     private JdbcTemplate jdbcTemplateObject;
 
     public SpringMessagesDAO(){
@@ -18,17 +17,19 @@ public class SpringMessagesDAO implements MessagesDAO {
     }
     @Autowired
     public SpringMessagesDAO(DataSource dataSource){
-        this.dataSource = dataSource;
         this.jdbcTemplateObject = new JdbcTemplate(dataSource);
     }
+    @Autowired
+    public SpringMessagesDAO(JdbcTemplate jdbcTemplate){
+        this.jdbcTemplateObject = jdbcTemplate;
+    }
 
-    @Override
+
     public void insert(String message, Date created) {
         String insertSql = "INSERT INTO recent (message, created) VALUES (?, ?)";
         jdbcTemplateObject.update(insertSql, message, created);
     }
 
-    @Override
     public List<MessageDAO> getMessage(int limit) {
         String sql = "SELECT * FROM recent ORDER BY id DESC LIMIT ?";
         return jdbcTemplateObject.query(sql, new Object[] { limit }, new MessageMapper());
