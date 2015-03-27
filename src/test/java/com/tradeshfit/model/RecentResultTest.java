@@ -45,6 +45,22 @@ public class RecentResultTest {
         Assert.assertEquals(result.getMessages().get(0).getMessage().getContent(), testMessage);
     }
 
+
+    @Test
+    public void AddTwoResultAndNull(){
+        Date first = new Date();
+        String testMessage = "this is a test";
+        RecentResult result = new RecentResult();
+        result.addMessage(testMessage, first);
+        result.addMessage(testMessage, first);
+        result.addMessage(testMessage, null);
+
+        Assert.assertNotNull(result.getLastMessage());
+        Assert.assertEquals(result.getLastMessage().getTime(), first.getTime());
+        Assert.assertEquals(result.getMessages().size(), 3);
+        Assert.assertEquals(result.getMessages().get(0).getMessage().getContent(), testMessage);
+    }
+
     @Test
     public void TestLatestMessageInOrder(){
         Calendar cal = Calendar.getInstance();
