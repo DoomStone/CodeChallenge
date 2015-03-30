@@ -10,6 +10,8 @@ import com.tradeshift.service.MessagesService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.Assert;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -22,18 +24,21 @@ import static org.mockito.Mockito.*;
 
 public class HelloResourceTest {
 
+    @Mock
     private MessagesDAO messagesDAO;
-    private MessagesService messagesService;
+    @Mock
     private HelloService helloService;
+    @Mock
     private HelloResource resource;
+
+
+    private MessagesService messagesService;
 
     @Before
     public void setUp(){
-        this.messagesDAO = mock(MessagesDAO.class);
-        this.messagesService = new MessagesService(messagesDAO);
-        this.helloService = mock(HelloService.class);
-        this.resource = new HelloResource(helloService, messagesService);
-
+        MockitoAnnotations.initMocks(this);
+        this.messagesService = new MessagesService(this.messagesDAO);
+        this.resource = new HelloResource(this.helloService, this.messagesService);
         when(this.helloService.formatName("Kasper")).thenReturn("Hello Kasper");
     }
 

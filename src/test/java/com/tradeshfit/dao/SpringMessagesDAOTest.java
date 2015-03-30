@@ -3,8 +3,11 @@ package com.tradeshfit.dao;
 import com.tradeshift.model.dto.MessageDTO;
 import com.tradeshfit.model.dao.SpringMessagesDAO;
 import com.tradeshfit.model.dao.mapper.MessageMapper;
+import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.ArrayList;
@@ -18,11 +21,18 @@ import static org.mockito.Mockito.eq;
 
 public class SpringMessagesDAOTest {
 
+    @Mock
+    private JdbcTemplate template = mock(JdbcTemplate.class);
+    private SpringMessagesDAO dao;
+
+    @Before
+    public void setUp(){
+        MockitoAnnotations.initMocks(this);
+        dao = new SpringMessagesDAO(template);
+    }
+
     @Test
     public void testInsert(){
-        JdbcTemplate template = mock(JdbcTemplate.class);
-        SpringMessagesDAO dao = new SpringMessagesDAO(template);
-
         Date date = new Date();
         dao.insert("Kasper", date);
         verify(template, Mockito.times(1)).update(any(String.class), eq("Kasper"), eq(date));
@@ -30,9 +40,6 @@ public class SpringMessagesDAOTest {
 
     @Test
     public void testGetMessage(){
-        JdbcTemplate template = mock(JdbcTemplate.class);
-        SpringMessagesDAO dao = new SpringMessagesDAO(template);
-
         when(template.query(any(String.class), any(Object[].class), any(MessageMapper.class)))
                 .thenReturn(new ArrayList<MessageDTO>());
 
@@ -43,9 +50,6 @@ public class SpringMessagesDAOTest {
 
     @Test
     public void testGetMessageLast100(){
-        JdbcTemplate template = mock(JdbcTemplate.class);
-        SpringMessagesDAO dao = new SpringMessagesDAO(template);
-
         when(template.query(any(String.class), any(Object[].class), any(MessageMapper.class)))
                 .thenReturn(new ArrayList<MessageDTO>());
 

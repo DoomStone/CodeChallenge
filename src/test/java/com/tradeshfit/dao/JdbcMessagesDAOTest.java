@@ -2,7 +2,10 @@ package com.tradeshfit.dao;
 
 import com.tradeshfit.model.dao.JdbcMessagesDAO;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
 import javax.sql.DataSource;
 
@@ -14,14 +17,23 @@ import java.util.Date;
 import static org.mockito.Mockito.*;
 
 public class JdbcMessagesDAOTest {
+    @Mock
+    private DataSource dataSource;
+    @Mock
+    private Connection connection;
+    @Mock
+    private PreparedStatement preparedStatement;
+    @Mock
+    private ResultSet resultSet;
+
+    @Before
+    public void setUp(){
+        MockitoAnnotations.initMocks(this);
+    }
 
     @Test
     public void testInsertUseDataSource(){
         try {
-            DataSource dataSource = mock(DataSource.class);
-            Connection connection = mock(Connection.class);
-            PreparedStatement preparedStatement = mock(PreparedStatement.class);
-
             when(dataSource.getConnection()).thenReturn(connection);
             when(connection.prepareStatement(any(String.class))).thenReturn(preparedStatement);
 
@@ -42,11 +54,6 @@ public class JdbcMessagesDAOTest {
     @Test
     public void testGetMessageNoResults(){
         try {
-            DataSource dataSource = mock(DataSource.class);
-            Connection connection = mock(Connection.class);
-            PreparedStatement preparedStatement = mock(PreparedStatement.class);
-            ResultSet resultSet = mock(ResultSet.class);
-
             when(dataSource.getConnection()).thenReturn(connection);
             when(connection.prepareStatement(any(String.class))).thenReturn(preparedStatement);
             when(preparedStatement.executeQuery()).thenReturn(resultSet);
@@ -69,11 +76,6 @@ public class JdbcMessagesDAOTest {
     @Test
     public void testGetMessageResults(){
         try {
-            DataSource dataSource = mock(DataSource.class);
-            Connection connection = mock(Connection.class);
-            PreparedStatement preparedStatement = mock(PreparedStatement.class);
-            ResultSet resultSet = mock(ResultSet.class);
-
             when(dataSource.getConnection()).thenReturn(connection);
             when(connection.prepareStatement(any(String.class))).thenReturn(preparedStatement);
             when(preparedStatement.executeQuery()).thenReturn(resultSet);
