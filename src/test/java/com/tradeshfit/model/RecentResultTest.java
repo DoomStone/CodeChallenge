@@ -9,7 +9,7 @@ import java.util.Date;
 public class RecentResultTest {
 
     @Test
-    public void AddZeroResults(){
+    public void addZeroResults(){
         RecentResult result = new RecentResult();
         Assert.assertNull(result.getLastMessage());
         Assert.assertEquals(result.getMessageCount(), 0);
@@ -17,7 +17,7 @@ public class RecentResultTest {
     }
 
     @Test
-    public void AddOneResult(){
+    public void addOneResult(){
         Date first = new Date();
         String testMessage = "this is a test";
         RecentResult result = new RecentResult();
@@ -30,7 +30,7 @@ public class RecentResultTest {
     }
 
     @Test
-    public void AddTwoResult(){
+    public void addTwoResult(){
         Date first = new Date();
         String testMessage = "this is a test";
         RecentResult result = new RecentResult();
@@ -44,7 +44,7 @@ public class RecentResultTest {
     }
 
     @Test
-    public void AddTwoResultAndNull(){
+    public void addTwoResultAndNull(){
         Date first = new Date();
         String testMessage = "this is a test";
         RecentResult result = new RecentResult();
@@ -59,7 +59,7 @@ public class RecentResultTest {
     }
 
     @Test
-    public void TestLatestMessageInOrder(){
+    public void testLatestMessageInOrder(){
         Calendar cal = Calendar.getInstance();
         cal.setTime(new Date());
         cal.add(Calendar.HOUR, -1);
@@ -78,7 +78,7 @@ public class RecentResultTest {
     }
 
     @Test
-    public void TestLatestMessageOutOfOrder(){
+    public void testLatestMessageOutOfOrder(){
         Calendar cal = Calendar.getInstance();
         cal.setTime(new Date());
         cal.add(Calendar.HOUR, -1);

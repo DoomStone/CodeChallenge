@@ -11,13 +11,13 @@ public class HelloDanishTest {
     private HelloService service;
 
     @Before
-    public void SetUp(){
+    public void setUp(){
 
         this.service = new DanishHelloService();
     }
 
     @Test
-    public void TestNoNameEntered(){
+    public void testNoNameEntered(){
         try{
             service.formatName("");
             Assert.assertTrue(false);
@@ -28,7 +28,7 @@ public class HelloDanishTest {
 
 
     @Test
-    public void TestNullEntered(){
+    public void testNullEntered(){
         try{
             service.formatName(null);
             Assert.assertTrue(false);
@@ -39,7 +39,7 @@ public class HelloDanishTest {
 
 
     @Test
-    public void TestWhitespaceEntered(){
+    public void testWhitespaceEntered(){
         try{
             service.formatName("   ");
             Assert.assertTrue(false);
@@ -49,13 +49,13 @@ public class HelloDanishTest {
     }
 
     @Test
-    public void TestWithName(){
+    public void testWithName(){
         String result = service.formatName("Kasper");
         Assert.assertTrue(result.equals("Hej Kasper"));
     }
 
     @Test
-    public void TestWithNameWithSpecialCharacters(){
+    public void tstWithNameWithSpecialCharacters(){
         String result = service.formatName("!!Kasper$$§§§");
         Assert.assertTrue(result.equals("Hej !!Kasper$$§§§"));
     }

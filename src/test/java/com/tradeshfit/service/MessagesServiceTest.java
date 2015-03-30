@@ -20,7 +20,7 @@ import static org.mockito.Mockito.when;
 public class MessagesServiceTest {
 
     @Test
-    public void TestZeroItemFetch(){
+    public void testZeroItemFetch(){
         MessagesDAO dao = mock(MessagesDAO.class);
         when(dao.getMessage(10)).thenReturn(new ArrayList<MessageDTO>());
         MessagesService service = new MessagesService(dao);
@@ -29,7 +29,7 @@ public class MessagesServiceTest {
     }
 
     @Test
-    public void TestOneItemFetch(){
+    public void testOneItemFetch(){
         Calendar cal = Calendar.getInstance();
         cal.setTime(new Date());
         cal.add(Calendar.HOUR, -5);
@@ -46,7 +46,7 @@ public class MessagesServiceTest {
     }
 
     @Test
-    public void TestNormalName(){
+    public void testNormalName(){
         MessagesDAO dao = mock(MessagesDAO.class);
 
         MessagesService service = new MessagesService(dao);
@@ -55,7 +55,7 @@ public class MessagesServiceTest {
     }
 
     @Test
-    public void TestNullName(){
+    public void testNullName(){
         MessagesDAO dao = mock(MessagesDAO.class);
 
         MessagesService service = new MessagesService(dao);
@@ -68,7 +68,7 @@ public class MessagesServiceTest {
     }
 
     @Test
-    public void TestWidespaceName(){
+    public void testWidespaceName(){
         MessagesDAO dao = mock(MessagesDAO.class);
 
         MessagesService service = new MessagesService(dao);

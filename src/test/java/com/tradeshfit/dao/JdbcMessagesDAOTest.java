@@ -16,7 +16,7 @@ import static org.mockito.Mockito.*;
 public class JdbcMessagesDAOTest {
 
     @Test
-    public void TestInsertUseDataSource(){
+    public void testInsertUseDataSource(){
         try {
             DataSource dataSource = mock(DataSource.class);
             Connection connection = mock(Connection.class);
@@ -40,7 +40,7 @@ public class JdbcMessagesDAOTest {
     }
 
     @Test
-    public void TestGetMessageNoResults(){
+    public void testGetMessageNoResults(){
         try {
             DataSource dataSource = mock(DataSource.class);
             Connection connection = mock(Connection.class);
@@ -67,7 +67,7 @@ public class JdbcMessagesDAOTest {
 
 
     @Test
-    public void TestGetMessageResults(){
+    public void testGetMessageResults(){
         try {
             DataSource dataSource = mock(DataSource.class);
             Connection connection = mock(Connection.class);

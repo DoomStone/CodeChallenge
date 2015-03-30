@@ -13,7 +13,7 @@ import static org.mockito.Mockito.*;
 
 public class MessageMapperTest {
     @Test
-    public void TestMapperCraeted(){
+    public void testMapperCraeted(){
         try {
             ResultSet resultSet = mock(ResultSet.class);
             Date date = new Date();

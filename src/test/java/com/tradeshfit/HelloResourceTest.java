@@ -28,7 +28,7 @@ public class HelloResourceTest {
     private HelloResource resource;
 
     @Before
-    public void SetUp(){
+    public void setUp(){
         this.messagesDAO = mock(MessagesDAO.class);
         this.messagesService = new MessagesService(messagesDAO);
         this.helloService = mock(HelloService.class);
@@ -38,7 +38,7 @@ public class HelloResourceTest {
     }
 
     @Test
-    public void TestNullName(){
+    public void testNullName(){
         try{
             resource.names(null);
             Assert.assertTrue(false);
@@ -50,7 +50,7 @@ public class HelloResourceTest {
     }
 
     @Test
-    public void TestWidespaceName(){
+    public void testWidespaceName(){
         try{
             resource.names("   ");
             Assert.assertTrue(false);
@@ -62,14 +62,14 @@ public class HelloResourceTest {
     }
 
     @Test
-    public void TestNormalName(){
+    public void testNormalName(){
         HelloResult result = resource.names("Kasper");
         Assert.assertEquals(result.getMessage().getContent(), "Hello Kasper");
         verify(this.messagesDAO, times(1)).insert(eq("Hello Kasper"), any(Date.class));
     }
 
     @Test
-    public void TestRecentNoReturn(){
+    public void testRecentNoReturn(){
         RecentResult result = resource.recent();
         Assert.assertEquals(result.getMessages().size(), 0);
         Assert.assertEquals(result.getLastMessage(), null);
@@ -78,7 +78,7 @@ public class HelloResourceTest {
     }
 
     @Test
-    public void TestRecentFourReturn(){
+    public void testRecentFourReturn(){
         Calendar cal = Calendar.getInstance();
         cal.setTime(new Date());
         cal.add(Calendar.HOUR, -5);

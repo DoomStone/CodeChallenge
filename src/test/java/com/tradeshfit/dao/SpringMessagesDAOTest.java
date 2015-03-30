@@ -19,7 +19,7 @@ import static org.mockito.Mockito.eq;
 public class SpringMessagesDAOTest {
 
     @Test
-    public void TestInsert(){
+    public void testInsert(){
         JdbcTemplate template = mock(JdbcTemplate.class);
         SpringMessagesDAO dao = new SpringMessagesDAO(template);
 
@@ -29,7 +29,7 @@ public class SpringMessagesDAOTest {
     }
 
     @Test
-    public void TestGetMessage(){
+    public void testGetMessage(){
         JdbcTemplate template = mock(JdbcTemplate.class);
         SpringMessagesDAO dao = new SpringMessagesDAO(template);
 
@@ -42,7 +42,7 @@ public class SpringMessagesDAOTest {
     }
 
     @Test
-    public void TestGetMessageLast100(){
+    public void testGetMessageLast100(){
         JdbcTemplate template = mock(JdbcTemplate.class);
         SpringMessagesDAO dao = new SpringMessagesDAO(template);
 
