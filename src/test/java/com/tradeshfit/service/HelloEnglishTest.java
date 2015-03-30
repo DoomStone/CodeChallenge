@@ -20,7 +20,7 @@ public class HelloEnglishTest {
         try{
             String result = service.formatName("");
             Assert.assertTrue(false);
-        } catch(NullPointerException exp){
+        } catch(IllegalArgumentException exp){
             Assert.assertTrue(true);
         }
     }
@@ -31,7 +31,7 @@ public class HelloEnglishTest {
         try{
             String result = service.formatName(null);
             Assert.assertTrue(false);
-        } catch(NullPointerException exp){
+        } catch(IllegalArgumentException exp){
             Assert.assertTrue(true);
         }
     }
@@ -42,7 +42,7 @@ public class HelloEnglishTest {
         try{
             service.formatName("   ");
             Assert.assertTrue(false);
-        } catch(NullPointerException exp){
+        } catch(IllegalArgumentException exp){
             Assert.assertTrue(true);
         }
     }

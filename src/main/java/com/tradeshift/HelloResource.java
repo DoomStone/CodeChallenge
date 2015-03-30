@@ -3,8 +3,7 @@ package com.tradeshift;
 import com.tradeshift.model.HelloResult;
 import com.tradeshift.model.MessageModel;
 import com.tradeshift.model.RecentResult;
-import com.tradeshfit.model.dao.MessageDAO;
-import com.tradeshfit.model.dao.MessagesDAO;
+import com.tradeshift.model.dto.MessageDTO;
 import com.tradeshift.service.HelloService;
 import com.tradeshift.service.MessagesService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +11,7 @@ import org.springframework.stereotype.Controller;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 @Path("/messages")
 @Controller
@@ -39,8 +39,8 @@ public class HelloResource {
             message = helloService.formatName(name);
             messagesService.insert(message);
         }
-        catch (NullPointerException exp){
-            message = "Error: Name can not be empty";
+        catch (IllegalArgumentException exp){
+            throw new WebApplicationException(Response.status(Response.Status.BAD_REQUEST).build());
         }
         HelloResult result = new HelloResult(new MessageModel(message));
 
@@ -52,7 +52,7 @@ public class HelloResource {
     @Produces(MediaType.APPLICATION_JSON)
     public RecentResult recent(){
         RecentResult model = new RecentResult();
-        for(MessageDAO message : messagesService.getMessage(10)){
+        for(MessageDTO message : messagesService.getMessage(10)){
             model.addMessage(message.getMessage(), message.getCreated());
         }
         return model;

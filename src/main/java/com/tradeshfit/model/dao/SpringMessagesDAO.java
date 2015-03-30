@@ -1,6 +1,7 @@
 package com.tradeshfit.model.dao;
 
 import com.tradeshfit.model.dao.mapper.MessageMapper;
+import com.tradeshift.model.dto.MessageDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -30,7 +31,7 @@ public class SpringMessagesDAO implements MessagesDAO {
         jdbcTemplateObject.update(insertSql, message, created);
     }
 
-    public List<MessageDAO> getMessage(int limit) {
+    public List<MessageDTO> getMessage(int limit) {
         String sql = "SELECT * FROM recent ORDER BY id DESC LIMIT ?";
         return jdbcTemplateObject.query(sql, new Object[] { limit }, new MessageMapper());
     }

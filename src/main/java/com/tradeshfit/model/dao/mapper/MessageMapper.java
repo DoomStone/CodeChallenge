@@ -1,15 +1,15 @@
 package com.tradeshfit.model.dao.mapper;
 
-import com.tradeshfit.model.dao.MessageDAO;
+import com.tradeshift.model.dto.MessageDTO;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import org.springframework.jdbc.core.RowMapper;
 
-public class MessageMapper implements RowMapper<MessageDAO> {
+public class MessageMapper implements RowMapper<MessageDTO> {
 
-    public MessageDAO mapRow(ResultSet resultSet, int rowNum) throws SQLException {
-        return new MessageDAO(
+    public MessageDTO mapRow(ResultSet resultSet, int rowNum) throws SQLException {
+        return new MessageDTO(
                 resultSet.getInt("id"),
                 resultSet.getString("message"),
                 resultSet.getTimestamp("created"));

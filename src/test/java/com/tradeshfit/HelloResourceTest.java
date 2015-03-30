@@ -1,6 +1,6 @@
 package com.tradeshfit;
 
-import com.tradeshfit.model.dao.MessageDAO;
+import com.tradeshift.model.dto.MessageDTO;
 import com.tradeshfit.model.dao.MessagesDAO;
 import com.tradeshift.HelloResource;
 import com.tradeshift.model.HelloResult;
@@ -39,15 +39,25 @@ public class HelloResourceTest {
 
     @Test
     public void TestNullName(){
-        HelloResult result = resource.names(null);
-        Assert.assertEquals(result.getMessage().getContent(), "Error: Name can not be empty");
+        try{
+            resource.names(null);
+            Assert.assertTrue(false);
+        }
+        catch (Exception exp){
+            Assert.assertTrue(true);
+        }
         verify(this.messagesDAO, never()).insert(any(String.class), any(Date.class));
     }
 
     @Test
     public void TestWidespaceName(){
-        HelloResult result = resource.names("      ");
-        Assert.assertEquals(result.getMessage().getContent(), "Error: Name can not be empty");
+        try{
+            resource.names("   ");
+            Assert.assertTrue(false);
+        }
+        catch (Exception exp){
+            Assert.assertTrue(true);
+        }
         verify(this.messagesDAO, never()).insert(any(String.class), any(Date.class));
     }
 
@@ -72,14 +82,14 @@ public class HelloResourceTest {
         Calendar cal = Calendar.getInstance();
         cal.setTime(new Date());
         cal.add(Calendar.HOUR, -5);
-        List<MessageDAO> mockList = new ArrayList<MessageDAO>();
-        mockList.add(new MessageDAO(1, "Test message 1", cal.getTime()));
+        List<MessageDTO> mockList = new ArrayList<MessageDTO>();
+        mockList.add(new MessageDTO(1, "Test message 1", cal.getTime()));
         cal.add(Calendar.HOUR, 1);
-        mockList.add(new MessageDAO(1, "Test message 2", cal.getTime()));
+        mockList.add(new MessageDTO(1, "Test message 2", cal.getTime()));
         cal.add(Calendar.HOUR, 2);
-        mockList.add(new MessageDAO(1, "Test message 3", cal.getTime()));
+        mockList.add(new MessageDTO(1, "Test message 3", cal.getTime()));
         cal.add(Calendar.HOUR, 3);
-        mockList.add(new MessageDAO(1, "Test message 4", cal.getTime()));
+        mockList.add(new MessageDTO(1, "Test message 4", cal.getTime()));
         when(this.messagesDAO.getMessage(10)).thenReturn(mockList);
 
         RecentResult result = resource.recent();

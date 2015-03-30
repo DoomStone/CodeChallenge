@@ -3,8 +3,6 @@ package com.tradeshfit.model;
 import com.tradeshift.model.RecentResult;
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.security.PublicKey;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -44,7 +42,6 @@ public class RecentResultTest {
         Assert.assertEquals(result.getMessages().size(), 2);
         Assert.assertEquals(result.getMessages().get(0).getMessage().getContent(), testMessage);
     }
-
 
     @Test
     public void AddTwoResultAndNull(){

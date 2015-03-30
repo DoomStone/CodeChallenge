@@ -1,5 +1,6 @@
 package com.tradeshfit.model.dao;
 
+import com.tradeshift.model.dto.MessageDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import javax.sql.DataSource;
 import java.sql.*;
@@ -20,9 +21,7 @@ public class JdbcMessagesDAO implements MessagesDAO {
 
     public void insert(String message, Date created) {
         String insertSql = "INSERT INTO recent (message, created) VALUES (?, ?)";
-        Connection connection = null;
-        try {
-            connection = dataSource.getConnection();
+        try (Connection connection = dataSource.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(insertSql);
 
             preparedStatement.setString(1, message);
@@ -31,30 +30,20 @@ public class JdbcMessagesDAO implements MessagesDAO {
             preparedStatement.close();
         } catch (SQLException e){
             throw new RuntimeException(e);
-        } finally {
-            if(connection != null){
-                try{
-                    connection.close();
-                } catch (SQLException e) {
-                    // Ignore
-                }
-            }
         }
     }
 
-    public List<MessageDAO> getMessage(int limit) {
-        List<MessageDAO> messages = new ArrayList<MessageDAO>();
+    public List<MessageDTO> getMessage(int limit) {
+        List<MessageDTO> messages = new ArrayList<MessageDTO>();
 
-        String sql = "SELECT * FROM recent ORDER BY id DESC LIMIT ?";
-        Connection connection = null;
-        try {
-            connection = dataSource.getConnection();
+        String sql = "SELECT * FROM recent ORDER BY created DESC LIMIT ?";
+        try(Connection connection = dataSource.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, limit);
 
             ResultSet resultSet = preparedStatement.executeQuery();
             while(resultSet.next()){
-                messages.add(new MessageDAO(
+                messages.add(new MessageDTO(
                         resultSet.getInt("id"),
                         resultSet.getString("message"),
                         new java.util.Date(resultSet.getDate("created").getTime())));
@@ -63,14 +52,6 @@ public class JdbcMessagesDAO implements MessagesDAO {
 
         } catch (SQLException e){
             throw new RuntimeException(e);
-        } finally {
-            if(connection != null){
-                try{
-                    connection.close();
-                } catch (SQLException e) {
-                    // Ignore
-                }
-            }
         }
 
         return messages;

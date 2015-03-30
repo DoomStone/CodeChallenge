@@ -1,16 +1,16 @@
-package com.tradeshfit.model.dao;
+package com.tradeshift.model.dto;
 
 import java.util.Date;
 
-public class MessageDAO {
+public class MessageDTO {
     private int id;
     private String message;
     private Date created;
 
-    public MessageDAO(){
+    public MessageDTO(){
 
     }
-    public MessageDAO(int id, String message, Date created) {
+    public MessageDTO(int id, String message, Date created) {
         this.id = id;
         this.message = message;
         this.created = created;

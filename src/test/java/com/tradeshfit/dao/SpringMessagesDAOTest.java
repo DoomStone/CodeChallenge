@@ -1,6 +1,6 @@
 package com.tradeshfit.dao;
 
-import com.tradeshfit.model.dao.MessageDAO;
+import com.tradeshift.model.dto.MessageDTO;
 import com.tradeshfit.model.dao.SpringMessagesDAO;
 import com.tradeshfit.model.dao.mapper.MessageMapper;
 import org.junit.Test;
@@ -34,7 +34,7 @@ public class SpringMessagesDAOTest {
         SpringMessagesDAO dao = new SpringMessagesDAO(template);
 
         when(template.query(any(String.class), any(Object[].class), any(MessageMapper.class)))
-                .thenReturn(new ArrayList<MessageDAO>());
+                .thenReturn(new ArrayList<MessageDTO>());
 
         Date date = new Date();
         dao.getMessage(10);
@@ -47,7 +47,7 @@ public class SpringMessagesDAOTest {
         SpringMessagesDAO dao = new SpringMessagesDAO(template);
 
         when(template.query(any(String.class), any(Object[].class), any(MessageMapper.class)))
-                .thenReturn(new ArrayList<MessageDAO>());
+                .thenReturn(new ArrayList<MessageDTO>());
 
         Date date = new Date();
         dao.getMessage(100);

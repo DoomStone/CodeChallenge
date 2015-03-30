@@ -1,6 +1,6 @@
 package com.tradeshift.service;
 
-import com.tradeshfit.model.dao.MessageDAO;
+import com.tradeshift.model.dto.MessageDTO;
 import com.tradeshfit.model.dao.MessagesDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 

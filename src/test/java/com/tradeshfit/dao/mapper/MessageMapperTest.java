@@ -1,6 +1,6 @@
 package com.tradeshfit.dao.mapper;
 
-import com.tradeshfit.model.dao.MessageDAO;
+import com.tradeshift.model.dto.MessageDTO;
 import com.tradeshfit.model.dao.mapper.MessageMapper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -21,7 +21,7 @@ public class MessageMapperTest {
             when(resultSet.getString("message")).thenReturn("Hello Kasper");
             when(resultSet.getTimestamp("created")).thenReturn(new Timestamp(date.getTime()));
 
-            MessageDAO message = new MessageMapper().mapRow(resultSet, 1);
+            MessageDTO message = new MessageMapper().mapRow(resultSet, 1);
             verify(resultSet, times(1)).getInt("id");
             verify(resultSet, times(1)).getString("message");
             verify(resultSet, times(1)).getTimestamp("created");

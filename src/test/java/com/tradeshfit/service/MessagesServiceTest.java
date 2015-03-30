@@ -1,6 +1,6 @@
 package com.tradeshfit.service;
 
-import com.tradeshfit.model.dao.MessageDAO;
+import com.tradeshift.model.dto.MessageDTO;
 import com.tradeshfit.model.dao.MessagesDAO;
 import com.tradeshift.service.MessagesService;
 import org.junit.Assert;
@@ -22,9 +22,9 @@ public class MessagesServiceTest {
     @Test
     public void TestZeroItemFetch(){
         MessagesDAO dao = mock(MessagesDAO.class);
-        when(dao.getMessage(10)).thenReturn(new ArrayList<MessageDAO>());
+        when(dao.getMessage(10)).thenReturn(new ArrayList<MessageDTO>());
         MessagesService service = new MessagesService(dao);
-        List<MessageDAO> result = service.getMessage(10);
+        List<MessageDTO> result = service.getMessage(10);
         Assert.assertEquals(result.size(), 0);
     }
 
@@ -34,13 +34,13 @@ public class MessagesServiceTest {
         cal.setTime(new Date());
         cal.add(Calendar.HOUR, -5);
         MessagesDAO dao = mock(MessagesDAO.class);
-        List<MessageDAO> mockList = new ArrayList<MessageDAO>();
-        mockList.add(new MessageDAO(1, "Test message 1", cal.getTime()));
+        List<MessageDTO> mockList = new ArrayList<MessageDTO>();
+        mockList.add(new MessageDTO(1, "Test message 1", cal.getTime()));
 
         when(dao.getMessage(10)).thenReturn(mockList);
 
         MessagesService service = new MessagesService(dao);
-        List<MessageDAO> result = service.getMessage(10);
+        List<MessageDTO> result = service.getMessage(10);
 
         Assert.assertEquals(result.size(), 1);
     }
@@ -62,7 +62,7 @@ public class MessagesServiceTest {
         try{
             service.insert(null);
             Assert.assertTrue(false);
-        } catch (NullPointerException exp){
+        } catch (IllegalArgumentException exp){
             Assert.assertTrue(true);
         }
     }
@@ -75,7 +75,7 @@ public class MessagesServiceTest {
         try{
             service.insert("     ");
             Assert.assertTrue(false);
-        } catch (NullPointerException exp){
+        } catch (IllegalArgumentException exp){
             Assert.assertTrue(true);
         }
     }
