@@ -16,14 +16,14 @@ public class MessagesService {
         this.dao = dao;
     }
 
-    public void insert(String message){
+    public void insert(String message) throws IllegalArgumentException {
         if(message == null || message.trim().length() == 0){
-            throw new NullPointerException("Message can not be empty or null");
+            throw new IllegalArgumentException("Message can not be empty or null");
         }
         this.dao.insert(message, new Date());
     }
 
-    public List<MessageDAO> getMessage(int limit){
+    public List<MessageDTO> getMessage(int limit){
         return this.dao.getMessage(limit);
     }
 }
