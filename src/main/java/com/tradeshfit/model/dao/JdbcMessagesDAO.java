@@ -16,6 +16,7 @@ public class JdbcMessagesDAO implements MessagesDAO {
     }
     @Autowired
     public JdbcMessagesDAO(DataSource dataSource){
+
         this.dataSource = dataSource;
     }
 

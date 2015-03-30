@@ -43,6 +43,11 @@ public class HelloResourceTest {
     }
 
     @Test
+    public void testConstructor(){
+        new HelloResource();
+    }
+
+    @Test
     public void testNullName(){
         try{
             resource.names(null);

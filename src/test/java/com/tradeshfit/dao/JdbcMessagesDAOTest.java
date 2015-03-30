@@ -90,8 +90,56 @@ public class JdbcMessagesDAOTest {
         verify(resultSet, times(2)).next();
     }
 
-    
-    public void testErrorWhenInserting(){
+    @Test
+    public void testErrorWhenInserting() throws SQLException{
+        when(this.preparedStatement.executeUpdate()).thenThrow(new SQLException());
+        JdbcMessagesDAO dao = new JdbcMessagesDAO(dataSource);
+        Date date = new Date();
 
+        try{
+            dao.insert("Kasper", date);
+        } catch (RuntimeException exp){
+            Assert.assertTrue(true);
+        }
+
+        verify(dataSource, times(1)).getConnection();
+        verify(connection, times(1)).prepareStatement(any(String.class));
+        verify(preparedStatement, times(1)).setString(1, "Kasper");
+        verify(preparedStatement, times(1)).executeUpdate();
+        verify(connection, times(1)).close();
+    }
+
+    @Test
+    public void testInsertUnableToOpenConnection() throws SQLException{
+        when(this.dataSource.getConnection()).thenThrow(new SQLException());
+        JdbcMessagesDAO dao = new JdbcMessagesDAO(dataSource);
+        Date date = new Date();
+
+        try{
+            dao.insert("Kasper", date);
+        } catch (RuntimeException exp){
+            Assert.assertTrue(true);
+        }
+
+        verify(dataSource, times(1)).getConnection();
+    }
+
+
+    @Test
+    public void testErrorWhenGettingMessageResults() throws SQLException{
+        when(preparedStatement.executeQuery()).thenThrow(new SQLException());
+
+        JdbcMessagesDAO dao = new JdbcMessagesDAO(dataSource);
+        try{
+            dao.getMessage(10);
+        } catch (RuntimeException exp){
+            Assert.assertTrue(true);
+        }
+        verify(dataSource, times(1)).getConnection();
+        verify(connection, times(1)).prepareStatement(any(String.class));
+        verify(preparedStatement, times(1)).setInt(1, 10);
+        verify(preparedStatement, times(1)).executeQuery();
+        verify(connection, times(1)).close();
+        verify(resultSet, times(0)).next();
     }
 }

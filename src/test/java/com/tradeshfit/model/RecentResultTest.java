@@ -1,5 +1,6 @@
 package com.tradeshfit.model;
 
+import com.tradeshift.model.MessageModel;
 import com.tradeshift.model.RecentResult;
 import org.junit.Assert;
 import org.junit.Test;

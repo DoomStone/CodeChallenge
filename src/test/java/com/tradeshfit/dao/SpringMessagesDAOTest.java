@@ -1,5 +1,6 @@
 package com.tradeshfit.dao;
 
+import com.tradeshfit.model.dao.JdbcMessagesDAO;
 import com.tradeshift.model.dto.MessageDTO;
 import com.tradeshfit.model.dao.SpringMessagesDAO;
 import com.tradeshfit.model.dao.mapper.MessageMapper;
@@ -10,6 +11,7 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -29,6 +31,13 @@ public class SpringMessagesDAOTest {
     public void setUp(){
         MockitoAnnotations.initMocks(this);
         dao = new SpringMessagesDAO(template);
+    }
+
+    @Test
+    public void testCreateInstance(){
+        DataSource dataSource = mock(DataSource.class);
+        new SpringMessagesDAO();
+        new SpringMessagesDAO(dataSource);
     }
 
     @Test
