@@ -79,7 +79,7 @@ public class HelloResourceTest {
         Assert.assertEquals(result.getMessages().size(), 0);
         Assert.assertEquals(result.getLastMessage(), null);
         Assert.assertEquals(result.getMessageCount(), 0);
-        verify(this.messagesDAO, times(1)).getMessage(any(int.class));
+        verify(this.messagesDAO, times(1)).getMessage(anyInt());
     }
 
     @Test
@@ -101,7 +101,7 @@ public class HelloResourceTest {
         Assert.assertEquals(result.getMessages().size(), 4);
         Assert.assertNotEquals(result.getLastMessage(), null);
         Assert.assertEquals(result.getMessageCount(), 4);
-        verify(this.messagesDAO, times(1)).getMessage(any(int.class));
+        verify(this.messagesDAO, times(1)).getMessage(anyInt());
         Assert.assertEquals(result.getLastMessage().getTime(), cal.getTime().getTime());
     }
 }
