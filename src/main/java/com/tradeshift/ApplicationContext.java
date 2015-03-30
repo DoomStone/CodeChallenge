@@ -33,10 +33,10 @@ public class ApplicationContext {
     public DataSource getDataSource(){
         PGPoolingDataSource source = new PGPoolingDataSource();
         source.setDataSourceName("The Data Source of pure awesomeness");
-        source.setServerName("localhost");
+        source.setServerName("192.168.1.222");
         source.setDatabaseName("CodeChallenge");
-        source.setUser("Kasper");
-        source.setPassword("D12345");
+        source.setUser("porta");
+        source.setPassword("porta");
         source.setMaxConnections(10);
         return source;
     }
