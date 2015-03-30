@@ -50,12 +50,12 @@ public class HelloEnglishTest {
     @Test
     public void testWithName(){
         String result = service.formatName("Kasper");
-        Assert.assertTrue(result.equals("Hello Kasper"));
+        Assert.assertEquals("Hello Kasper", result);
     }
 
     @Test
     public void testWithNameWithSpecialCharacters(){
         String result = service.formatName("!!Kasper$$§§§");
-        Assert.assertTrue(result.equals("Hello !!Kasper$$§§§"));
+        Assert.assertEquals("Hello !!Kasper$$§§§", result);
     }
 }

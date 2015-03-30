@@ -46,7 +46,7 @@ public class HelloResourceTest {
     public void testNullName(){
         try{
             resource.names(null);
-            Assert.assertTrue(false);
+            Assert.fail();
         }
         catch (Exception exp){
             Assert.assertTrue(true);
@@ -58,7 +58,7 @@ public class HelloResourceTest {
     public void testWidespaceName(){
         try{
             resource.names("   ");
-            Assert.assertTrue(false);
+            Assert.fail();
         }
         catch (Exception exp){
             Assert.assertTrue(true);
@@ -76,9 +76,9 @@ public class HelloResourceTest {
     @Test
     public void testRecentNoReturn(){
         RecentResult result = resource.recent();
-        Assert.assertEquals(result.getMessages().size(), 0);
-        Assert.assertEquals(result.getLastMessage(), null);
-        Assert.assertEquals(result.getMessageCount(), 0);
+        Assert.assertEquals(0, result.getMessages().size());
+        Assert.assertNull(result.getLastMessage());
+        Assert.assertEquals(0, result.getMessageCount());
         verify(this.messagesDAO, times(1)).getMessage(anyInt());
     }
 
@@ -98,9 +98,9 @@ public class HelloResourceTest {
         when(this.messagesDAO.getMessage(10)).thenReturn(mockList);
 
         RecentResult result = resource.recent();
-        Assert.assertEquals(result.getMessages().size(), 4);
-        Assert.assertNotEquals(result.getLastMessage(), null);
-        Assert.assertEquals(result.getMessageCount(), 4);
+        Assert.assertEquals(4, result.getMessages().size());
+        Assert.assertNotNull(result.getLastMessage());
+        Assert.assertEquals(4, result.getMessageCount());
         verify(this.messagesDAO, times(1)).getMessage(anyInt());
         Assert.assertEquals(result.getLastMessage().getTime(), cal.getTime().getTime());
     }

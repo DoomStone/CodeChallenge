@@ -53,9 +53,9 @@ public class RecentResultTest {
         result.addMessage(testMessage, null);
 
         Assert.assertNotNull(result.getLastMessage());
-        Assert.assertEquals(result.getLastMessage().getTime(), first.getTime());
-        Assert.assertEquals(result.getMessages().size(), 3);
-        Assert.assertEquals(result.getMessages().get(0).getMessage().getContent(), testMessage);
+        Assert.assertEquals(first.getTime(), result.getLastMessage().getTime());
+        Assert.assertEquals(3, result.getMessages().size());
+        Assert.assertEquals(testMessage, result.getMessages().get(0).getMessage().getContent());
     }
 
     @Test
@@ -72,9 +72,9 @@ public class RecentResultTest {
         result.addMessage(testMessage + " 2", second);
 
         Assert.assertNotNull(result.getLastMessage());
-        Assert.assertEquals(result.getLastMessage().getTime(), second.getTime());
-        Assert.assertEquals(result.getMessages().size(), 2);
-        Assert.assertEquals(result.getMessages().get(0).getMessage().getContent(), testMessage + " 1");
+        Assert.assertEquals(second.getTime(), result.getLastMessage().getTime());
+        Assert.assertEquals(2, result.getMessages().size());
+        Assert.assertEquals(testMessage + " 1", result.getMessages().get(0).getMessage().getContent());
     }
 
     @Test
@@ -91,8 +91,8 @@ public class RecentResultTest {
         result.addMessage(testMessage + " 1", first);
 
         Assert.assertNotNull(result.getLastMessage());
-        Assert.assertEquals(result.getLastMessage().getTime(), second.getTime());
-        Assert.assertEquals(result.getMessages().size(), 2);
-        Assert.assertEquals(result.getMessages().get(0).getMessage().getContent(), testMessage + " 2");
+        Assert.assertEquals(second.getTime(), result.getLastMessage().getTime());
+        Assert.assertEquals(2, result.getMessages().size());
+        Assert.assertEquals(testMessage + " 2", result.getMessages().get(0).getMessage().getContent());
     }
 }

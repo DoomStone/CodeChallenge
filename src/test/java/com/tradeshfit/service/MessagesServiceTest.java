@@ -61,7 +61,7 @@ public class MessagesServiceTest {
         MessagesService service = new MessagesService(dao);
         try{
             service.insert(null);
-            Assert.assertTrue(false);
+            Assert.fail();
         } catch (IllegalArgumentException exp){
             Assert.assertTrue(true);
         }
@@ -74,7 +74,7 @@ public class MessagesServiceTest {
         MessagesService service = new MessagesService(dao);
         try{
             service.insert("     ");
-            Assert.assertTrue(false);
+            Assert.fail();
         } catch (IllegalArgumentException exp){
             Assert.assertTrue(true);
         }

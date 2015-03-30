@@ -20,7 +20,7 @@ public class HelloDanishTest {
     public void testNoNameEntered(){
         try{
             service.formatName("");
-            Assert.assertTrue(false);
+            Assert.fail();
         } catch(IllegalArgumentException exp){
             Assert.assertTrue(true);
         }
@@ -31,7 +31,7 @@ public class HelloDanishTest {
     public void testNullEntered(){
         try{
             service.formatName(null);
-            Assert.assertTrue(false);
+            Assert.fail();
         } catch(IllegalArgumentException exp){
             Assert.assertTrue(true);
         }
@@ -42,7 +42,7 @@ public class HelloDanishTest {
     public void testWhitespaceEntered(){
         try{
             service.formatName("   ");
-            Assert.assertTrue(false);
+            Assert.fail();
         } catch(IllegalArgumentException exp){
             Assert.assertTrue(true);
         }
@@ -51,12 +51,12 @@ public class HelloDanishTest {
     @Test
     public void testWithName(){
         String result = service.formatName("Kasper");
-        Assert.assertTrue(result.equals("Hej Kasper"));
+        Assert.assertEquals("Hej Kasper", result);
     }
 
     @Test
     public void tstWithNameWithSpecialCharacters(){
         String result = service.formatName("!!Kasper$$§§§");
-        Assert.assertTrue(result.equals("Hej !!Kasper$$§§§"));
+        Assert.assertEquals("Hej !!Kasper$$§§§", result);
     }
 }
