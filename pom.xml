@@ -59,7 +59,6 @@
                                 rsync -a --delete ${project.basedir}/docker/ ${project.build.directory}/docker
                                 cp -p ${project.build.directory}/${project.build.finalName}.war ${project.build.directory}/docker/root.war
                                 find ${project.build.directory}/docker | xargs touch -t 197409101630.00
-                                docker build -f DockerfileBase -t tradeshift/jettybase ${project.build.directory}/docker
                                 docker build -t tradeshift/${docker.imageName} ${project.build.directory}/docker
                             </script>
                         </configuration>
@@ -150,15 +149,6 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.5</source>
-                    <target>1.5</target>
-                </configuration>
             </plugin>
         </plugins>
     </build>
