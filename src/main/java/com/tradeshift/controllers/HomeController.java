@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class HomeController {
 
 	@RequestMapping(method = RequestMethod.GET)
-    public ModelAndView Index(ModelMap model){
+    public ModelAndView Index(){
 		 return new ModelAndView("home/index");
     }
 }
