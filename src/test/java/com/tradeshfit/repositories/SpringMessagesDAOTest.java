@@ -1,9 +1,8 @@
-package com.tradeshfit.dao;
+package com.tradeshfit.repositories;
 
-import com.tradeshfit.model.dao.JdbcMessagesDAO;
-import com.tradeshift.model.dto.MessageDTO;
-import com.tradeshfit.model.dao.SpringMessagesDAO;
-import com.tradeshfit.model.dao.mapper.MessageMapper;
+import com.tradeshift.repositoreis.SpringMessagesDAO;
+import com.tradeshift.models.dtos.MessageDTO;
+import com.tradeshift.repositoreis.mappers.MessageMapper;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;

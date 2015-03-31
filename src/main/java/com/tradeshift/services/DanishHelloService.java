@@ -1,4 +1,4 @@
-package com.tradeshift.service;
+package com.tradeshift.services;
 
 public class DanishHelloService implements HelloService {
 

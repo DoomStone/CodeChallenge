@@ -1,7 +1,7 @@
-package com.tradeshfit.model.dao;
+package com.tradeshift.repositoreis;
 
-import com.tradeshfit.model.dao.mapper.MessageMapper;
-import com.tradeshift.model.dto.MessageDTO;
+import com.tradeshift.repositoreis.mappers.MessageMapper;
+import com.tradeshift.models.dtos.MessageDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 

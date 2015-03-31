@@ -1,6 +1,6 @@
-package com.tradeshfit.model.dto;
+package com.tradeshfit.models.dtos;
 
-import com.tradeshift.model.dto.MessageDTO;
+import com.tradeshift.models.dtos.MessageDTO;
 import org.junit.Assert;
 import org.junit.Test;
 

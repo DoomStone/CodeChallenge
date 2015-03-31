@@ -1,12 +1,12 @@
-package com.tradeshfit;
+package com.tradeshfit.resources.api;
 
-import com.tradeshift.model.dto.MessageDTO;
-import com.tradeshfit.model.dao.MessagesDAO;
-import com.tradeshift.HelloResource;
-import com.tradeshift.model.HelloResult;
-import com.tradeshift.model.RecentResult;
-import com.tradeshift.service.HelloService;
-import com.tradeshift.service.MessagesService;
+import com.tradeshift.repositoreis.MessagesDAO;
+import com.tradeshift.models.dtos.MessageDTO;
+import com.tradeshift.models.HelloResult;
+import com.tradeshift.models.RecentResult;
+import com.tradeshift.resources.api.MessagesResource;
+import com.tradeshift.services.HelloService;
+import com.tradeshift.services.MessagesService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.Assert;
@@ -22,14 +22,14 @@ import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.*;
 
-public class HelloResourceTest {
+public class MessagesResourceTest {
 
     @Mock
     private MessagesDAO messagesDAO;
     @Mock
     private HelloService helloService;
     @Mock
-    private HelloResource resource;
+    private MessagesResource resource;
 
 
     private MessagesService messagesService;
@@ -38,13 +38,13 @@ public class HelloResourceTest {
     public void setUp(){
         MockitoAnnotations.initMocks(this);
         this.messagesService = new MessagesService(this.messagesDAO);
-        this.resource = new HelloResource(this.helloService, this.messagesService);
+        this.resource = new MessagesResource(this.helloService, this.messagesService);
         when(this.helloService.formatName("Kasper")).thenReturn("Hello Kasper");
     }
 
     @Test
     public void testConstructor(){
-        new HelloResource();
+        new MessagesResource();
     }
 
     @Test

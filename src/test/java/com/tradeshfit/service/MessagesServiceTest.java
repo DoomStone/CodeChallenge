@@ -1,8 +1,8 @@
 package com.tradeshfit.service;
 
-import com.tradeshift.model.dto.MessageDTO;
-import com.tradeshfit.model.dao.MessagesDAO;
-import com.tradeshift.service.MessagesService;
+import com.tradeshift.models.dtos.MessageDTO;
+import com.tradeshift.repositoreis.MessagesDAO;
+import com.tradeshift.services.MessagesService;
 import org.junit.Assert;
 import org.junit.Test;
 

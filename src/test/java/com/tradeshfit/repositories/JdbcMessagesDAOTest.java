@@ -1,6 +1,6 @@
-package com.tradeshfit.dao;
+package com.tradeshfit.repositories;
 
-import com.tradeshfit.model.dao.JdbcMessagesDAO;
+import com.tradeshift.repositoreis.JdbcMessagesDAO;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

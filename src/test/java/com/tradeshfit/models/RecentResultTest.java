@@ -1,7 +1,6 @@
-package com.tradeshfit.model;
+package com.tradeshfit.models;
 
-import com.tradeshift.model.MessageModel;
-import com.tradeshift.model.RecentResult;
+import com.tradeshift.models.RecentResult;
 import org.junit.Assert;
 import org.junit.Test;
 import java.util.Calendar;

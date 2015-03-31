@@ -1,6 +1,6 @@
-package com.tradeshfit.model.dao;
+package com.tradeshift.repositoreis;
 
-import com.tradeshift.model.dto.MessageDTO;
+import com.tradeshift.models.dtos.MessageDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import javax.sql.DataSource;
 import java.sql.*;

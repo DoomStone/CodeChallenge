@@ -1,7 +1,7 @@
-package com.tradeshift.service;
+package com.tradeshift.services;
 
-import com.tradeshift.model.dto.MessageDTO;
-import com.tradeshfit.model.dao.MessagesDAO;
+import com.tradeshift.models.dtos.MessageDTO;
+import com.tradeshift.repositoreis.MessagesDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Date;

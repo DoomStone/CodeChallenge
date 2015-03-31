@@ -1,4 +1,4 @@
-package com.tradeshift.model.dto;
+package com.tradeshift.models.dtos;
 
 import java.util.Date;
 

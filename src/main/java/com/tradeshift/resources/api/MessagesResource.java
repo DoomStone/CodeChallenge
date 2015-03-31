@@ -1,11 +1,11 @@
-package com.tradeshift;
+package com.tradeshift.resources.api;
 
-import com.tradeshift.model.HelloResult;
-import com.tradeshift.model.MessageModel;
-import com.tradeshift.model.RecentResult;
-import com.tradeshift.model.dto.MessageDTO;
-import com.tradeshift.service.HelloService;
-import com.tradeshift.service.MessagesService;
+import com.tradeshift.models.HelloResult;
+import com.tradeshift.models.MessageModel;
+import com.tradeshift.models.RecentResult;
+import com.tradeshift.models.dtos.MessageDTO;
+import com.tradeshift.services.HelloService;
+import com.tradeshift.services.MessagesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -15,17 +15,17 @@ import javax.ws.rs.core.Response;
 
 @Path("/messages")
 @Controller
-public class HelloResource {
+public class MessagesResource {
     @Autowired
     private HelloService helloService;
 
     @Autowired
     private MessagesService messagesService;
 
-    public HelloResource(){
+    public MessagesResource(){
 
     }
-    public HelloResource(HelloService helloService, MessagesService messagesService){
+    public MessagesResource(HelloService helloService, MessagesService messagesService){
         this.helloService = helloService;
         this.messagesService = messagesService;
     }

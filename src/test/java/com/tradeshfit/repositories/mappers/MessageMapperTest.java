@@ -1,7 +1,7 @@
-package com.tradeshfit.dao.mapper;
+package com.tradeshfit.repositories.mappers;
 
-import com.tradeshift.model.dto.MessageDTO;
-import com.tradeshfit.model.dao.mapper.MessageMapper;
+import com.tradeshift.models.dtos.MessageDTO;
+import com.tradeshift.repositoreis.mappers.MessageMapper;
 import org.junit.Assert;
 import org.junit.Test;
 

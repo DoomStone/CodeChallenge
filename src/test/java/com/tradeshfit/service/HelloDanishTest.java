@@ -1,7 +1,7 @@
 package com.tradeshfit.service;
 
-import com.tradeshift.service.DanishHelloService;
-import com.tradeshift.service.HelloService;
+import com.tradeshift.services.DanishHelloService;
+import com.tradeshift.services.HelloService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.Assert;
