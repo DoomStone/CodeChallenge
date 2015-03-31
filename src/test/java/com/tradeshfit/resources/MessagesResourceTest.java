@@ -1,10 +1,10 @@
-package com.tradeshfit.resources.api;
+package com.tradeshfit.resources;
 
 import com.tradeshift.repositoreis.MessagesDAO;
 import com.tradeshift.models.dtos.MessageDTO;
 import com.tradeshift.models.HelloResult;
 import com.tradeshift.models.RecentResult;
-import com.tradeshift.resources.api.MessagesResource;
+import com.tradeshift.resources.MessagesResource;
 import com.tradeshift.services.HelloService;
 import com.tradeshift.services.MessagesService;
 import org.junit.Before;

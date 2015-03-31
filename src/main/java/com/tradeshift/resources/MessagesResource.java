@@ -1,4 +1,4 @@
-package com.tradeshift.resources.api;
+package com.tradeshift.resources;
 
 import com.tradeshift.models.HelloResult;
 import com.tradeshift.models.MessageModel;
