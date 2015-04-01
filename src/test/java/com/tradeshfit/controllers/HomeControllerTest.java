@@ -11,13 +11,8 @@ import static org.mockito.Mockito.mock;
 public class HomeControllerTest {
 
 	@Test
-	public void TestConstructor(){
-		new HomeController();
-	}
-
-	@Test
-	public void TestRightViewIsCalled(){
-		ModelAndView viewModel = new HomeController().Index();
+	public void testRightViewIsCalled(){
+		ModelAndView viewModel = new HomeController().index();
 		Assert.assertEquals("home/index", viewModel.getViewName());
 	}
 }

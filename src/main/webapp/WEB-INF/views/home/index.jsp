@@ -61,7 +61,6 @@
             $scope.update();
 
             $scope.send = function(){
-                console.log("Magic");
                 var name = $scope.name;
                 name = encodeURIComponent(name);
 
